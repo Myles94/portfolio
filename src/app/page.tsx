@@ -20,8 +20,12 @@ function YouTubePlayer({ videoId, startTime = 5 }: { videoId: string; startTime?
       { threshold: 0.5 }
     );
 
-    if (containerRef.current) observer.observe(containerRef.current);
-    return () => { if (containerRef.current) observer.unobserve(containerRef.current); };
+    // ✅ capture current node for cleanup to avoid ref changing
+    const node = containerRef.current;
+    if (node) observer.observe(node);
+    return () => {
+      if (node) observer.unobserve(node);
+    };
   }, [isInView]);
 
   const getVideoId = (url: string) => {
@@ -96,10 +100,10 @@ export default function Home() {
               transition={{ duration: 0.55 }}
               className="text-4xl md:text-5xl font-extrabold leading-tight"
             >
-              Hi, I'm <span className="text-[#4B9CD3]">Myles</span>
+              Hi, I&#39;m <span className="text-[#4B9CD3]">Myles</span>
             </motion.h1>
             <p className="text-gray-700">
-              Third-year Computer Science major and <span className="text-[#4B9CD3]">Chancellor's Science Scholar</span> at UNC, combining a drive for innovation in tech with dedication as a Division I track athlete.
+              Third-year Computer Science major and <span className="text-[#4B9CD3]">Chancellor&#39;s Science Scholar</span> at UNC, combining a drive for innovation in tech with dedication as a Division I track athlete.
             </p>
             <div className="flex gap-3">
               <a
@@ -130,7 +134,7 @@ export default function Home() {
       {/* About Me */}
       <Section id="about" title="About Me">
         <p className="text-gray-700 leading-relaxed">
-          I’m a Computer Science student at UNC Chapel Hill and a Division I track athlete with a passion for building technology that makes a tangible impact. I’ve worked on projects like an AI foul detection system for track & field and BikeWatch UNC, a campus platform to track and prevent bike theft. Currently, I’m an undergraduate researcher in the Society-Centered Artificial Intelligence Lab (SAIL), where I develop machine learning models with a focus on fairness and reproducibility, and build scalable FastAPI pipelines for data processing and deployment. Across my work, I enjoy tackling real-world problems, collaborating across disciplines, and turning ideas into practical solutions.
+          I&#39;m a Computer Science student at UNC Chapel Hill and a Division I track athlete with a passion for building technology that makes a tangible impact. I&#39;ve worked on projects like an AI foul detection system for track &amp; field and BikeWatch UNC, a campus platform to track and prevent bike theft. Currently, I&#39;m an undergraduate researcher in the Society-Centered Artificial Intelligence Lab (SAIL), where I develop machine learning models with a focus on fairness and reproducibility, and build scalable FastAPI pipelines for data processing and deployment. Across my work, I enjoy tackling real-world problems, collaborating across disciplines, and turning ideas into practical solutions.
         </p>
       </Section>
 
@@ -185,7 +189,7 @@ export default function Home() {
 
           {/* BikeWatch UNC Project */}
           <motion.div
-            key="BikeWatch UNC (Coming Soon!)"
+            key="BikeWatch UNC"
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -199,8 +203,8 @@ export default function Home() {
                 className="w-full h-full object-cover rounded-lg hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <div className="font-semibold text-[#4B9CD3]">BikeWatch UNC (Coming Soon!)</div>
-            <p className="text-gray-600 text-sm">Full stack web app for reporting stolen bikes and e-scooters on UNC's campus.</p>
+            <div className="font-semibold text-[#4B9CD3]">BikeWatch UNC</div>
+            <p className="text-gray-600 text-sm">Full stack web app for reporting stolen bikes and e-scooters on UNC&#39;s campus.</p>
             <div className="pt-2">
               <a
                 href="https://github.com/Myles94/bikewatch-unc"
