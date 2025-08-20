@@ -203,7 +203,7 @@ export default function Home() {
                 className="w-full h-full object-cover rounded-lg hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <div className="font-semibold text-[#4B9CD3]">BikeWatch UNC</div>
+            <div className="font-semibold text-[#4B9CD3]">BikeWatch UNC (Coming Soon!)</div>
             <p className="text-gray-600 text-sm">Full stack web app for reporting stolen bikes and e-scooters on UNC&#39;s campus.</p>
             <div className="pt-2">
               <a
