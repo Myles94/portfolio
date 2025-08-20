@@ -132,7 +132,7 @@ export default function Home() {
 
       {/* About Me */}
       <Section id="about" title="About Me">
-        <p className="text-2xl md:text-3xl text-gray-700 leading-relaxed">
+        <p className="text-xl md:text-2xl text-gray-700 leading-relaxed">
           I&#39;m a Computer Science student at UNC Chapel Hill and a Division I track athlete with a passion for building technology that makes a tangible impact. I&#39;ve worked on projects like an AI foul detection system for track &amp; field and BikeWatch UNC, a campus platform to track and prevent bike theft. Currently, I&#39;m an undergraduate researcher in the Society-Centered Artificial Intelligence Lab (SAIL), where I develop machine learning models with a focus on fairness and reproducibility, and build scalable FastAPI pipelines for data processing and deployment. Across my work, I enjoy tackling real-world problems, collaborating across disciplines, and turning ideas into practical solutions.
         </p>
       </Section>
